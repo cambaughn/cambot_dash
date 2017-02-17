@@ -20,7 +20,7 @@ app.get('/quotes', function (request, response) {
     if (error) {
       console.error(error);
     }
- 
+
     response.send(quote);
   })
 });

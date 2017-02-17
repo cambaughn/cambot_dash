@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import NewQuoteForm from './NewQuoteForm';
 import Quotes from './Quotes';
+import Navbar from './Navbar';
+
 
 class App extends Component {
   constructor(props) {
@@ -36,10 +38,14 @@ class App extends Component {
 
   render() {
     return (
-      <div style={styles.pageContainer} >
-        <div style={styles.quoteWrapper} >
-          <NewQuoteForm getAllQuotes={this.getAllQuotes.bind(this)} />
-          <Quotes quotes={this.state.quotes} />
+      <div style={styles.page} >
+        <Navbar />
+
+        <div style={styles.bodyContainer} >
+          <div style={styles.quoteWrapper} >
+            <NewQuoteForm getAllQuotes={this.getAllQuotes.bind(this)} />
+            <Quotes quotes={this.state.quotes} />
+          </div>
         </div>
       </div>
     );
@@ -47,8 +53,12 @@ class App extends Component {
 }
 
 const styles = {
-  pageContainer: {
-    paddingTop: 40,
+  page: {
+    marginTop: 0,
+  },
+  
+  bodyContainer: {
+    paddingTop: 20,
 
     width: '100%',
     display: 'flex',

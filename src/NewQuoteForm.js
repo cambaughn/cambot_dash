@@ -10,6 +10,8 @@ class NewQuoteForm extends Component {
     }
   }
 
+  // TODO: Add validation for form to make sure I can't send an empty quote
+
   // Fetch request to POST new quote to server
   sendNewQuote(event) {
     event.preventDefault();
