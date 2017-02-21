@@ -44,7 +44,7 @@ class App extends Component {
         <div style={styles.bodyContainer} >
           <div style={styles.quoteWrapper} >
             <NewQuoteForm getAllQuotes={this.getAllQuotes.bind(this)} />
-            <Quotes quotes={this.state.quotes} />
+            <Quotes quotes={this.state.quotes} getAllQuotes={this.getAllQuotes.bind(this)} />
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ const styles = {
   page: {
     marginTop: 0,
   },
-  
+
   bodyContainer: {
     paddingTop: 20,
 
@@ -72,7 +72,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'flex-start',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
 
     // border: '1px solid lightgreen',
   }

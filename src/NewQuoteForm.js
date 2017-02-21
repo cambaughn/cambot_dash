@@ -10,14 +10,13 @@ class NewQuoteForm extends Component {
     }
   }
 
-  // TODO: Add validation for form to make sure I can't send an empty quote
 
   // Fetch request to POST new quote to server
   sendNewQuote(event) {
     event.preventDefault();
 
     // Setup for request
-    const url = 'http://localhost:1337/new_quote';
+    const url = 'http://localhost:1337/quotes';
 
     let newQuote = { author: this.state.author,
       text: this.state.text }
@@ -32,8 +31,9 @@ class NewQuoteForm extends Component {
                   body: JSON.stringify(newQuote)
                 };
 
-    // Actual request - handle errors and response here
-    fetch(url, init)
+    if (newQuote.author && newQuote.text) {
+      // Actual request - handle errors and response here
+      fetch(url, init)
       .then(response => {
         console.log(response);
         this.props.getAllQuotes();
@@ -43,20 +43,12 @@ class NewQuoteForm extends Component {
       .catch(function(error) {
         console.error(error);
       });
+    }
   }
 
   render() {
     return (
       <form style={styles.form}>
-        <div className="form-group">
-          <label htmlFor="author">Author</label>
-          <input type="text" className="form-control" id="author"
-            placeholder="Author Name" value={this.state.author}
-            onChange={event => {
-              this.setState({ author: event.target.value });
-            }}
-            />
-        </div>
 
         <div className="form-group">
           <label htmlFor="quote">Quote</label>
@@ -69,6 +61,16 @@ class NewQuoteForm extends Component {
           </textarea>
         </div>
 
+        <div className="form-group">
+          <label htmlFor="author">Author</label>
+          <input type="text" className="form-control" id="author"
+            placeholder="Author Name" value={this.state.author}
+            onChange={event => {
+              this.setState({ author: event.target.value });
+            }}
+            />
+        </div>
+
         <button type="submit" className="btn btn-primary" onClick={this.sendNewQuote.bind(this)}>Submit</button>
       </form>
     );
@@ -79,7 +81,6 @@ class NewQuoteForm extends Component {
 const styles = {
   form: {
     width: 350,
-    // border: '1px solid salmon',
   }
 
 }

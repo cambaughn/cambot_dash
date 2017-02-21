@@ -13,7 +13,8 @@ class Quotes extends Component {
       <div style={styles.container}>
         {
           this.props.quotes.map(quote => {
-            return <QuoteListItem quote={quote.text} author={quote.author} />
+            return <QuoteListItem text={quote.text} author={quote.author} id={quote._id}
+              getAllQuotes={this.props.getAllQuotes} key={quote._id} />
           })
         }
         <QuoteListItem />
