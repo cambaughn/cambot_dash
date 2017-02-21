@@ -1,7 +1,8 @@
 # Cambot Dashboard
 
 ## To Start
-```npm start
+```
+npm start
 nodemon server/server.js
 mongod --dbpath=./db
 ```
