@@ -17,7 +17,6 @@ class Quotes extends Component {
               getAllQuotes={this.props.getAllQuotes} key={quote._id} />
           })
         }
-        <QuoteListItem />
       </div>
     );
   }

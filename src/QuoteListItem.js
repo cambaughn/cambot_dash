@@ -28,6 +28,7 @@ class QuoteListItem extends Component {
             this.setState({ text: event.target.value });
           }}
           onBlur={util.updateQuote.bind(this, this.props.id, this.state.author, this.state.text, this.props.getAllQuotes)}
+          style={styles.input}
           />
         <br />
 
@@ -36,9 +37,10 @@ class QuoteListItem extends Component {
             this.setState({ author: event.target.value });
           }}
           onBlur={util.updateQuote.bind(this, this.props.id, this.state.author, this.state.text, this.props.getAllQuotes)}
+          style={styles.input}
         />
 
-        
+
         <i className="fa fa-times" aria-hidden="true"
           style={deleteStyle}
           onClick={util.deleteQuote.bind(this, this.props.id, this.props.getAllQuotes)}
@@ -76,7 +78,13 @@ const styles = {
   deleteHover: {
     visibility: 'visible',
     cursor: 'pointer',
-  }
+  },
+
+  input: {
+    outline: 'none',
+    border: 'none',
+    backgroundColor: 'transparent',
+  },
 
 }
 

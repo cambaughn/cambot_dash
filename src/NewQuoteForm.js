@@ -57,7 +57,8 @@ class NewQuoteForm extends Component {
             placeholder='Quote'
             onChange={event => {
               this.setState({ text: event.target.value });
-            }}>
+            }}
+            style={styles.textArea}>
           </textarea>
         </div>
 
@@ -81,8 +82,11 @@ class NewQuoteForm extends Component {
 const styles = {
   form: {
     width: 350,
-  }
+  },
 
+  textArea: {
+    maxWidth: 350,
+  },
 }
 
 export default NewQuoteForm;
